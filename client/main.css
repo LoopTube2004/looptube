@@ -1,0 +1,13 @@
+#startHour, #endHour, #startMinute, #endMinute, #loopCount {
+    margin-top: 10px;
+}
+
+#submit {
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+#submit:hover {
+    background-color: green;
+    
+}

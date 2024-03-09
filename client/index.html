@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Looptube</title>
+  </head>
+  <body>
+    <header><h1>Looptube</h1></header>
+    <body>
+    <form>
+        <div id="form-link">
+            <label for="youtubeLink">Link:</label>
+            <input
+                type="text"
+                id="youtubeLink"
+                name="youtubeLink"
+                placeholder="Put your YouTube URL here!"
+                required
+            />
+        </div>
+        <div id="form-start-timestamp">
+            <label for="startHour">Start:</label>
+            <input
+                type="number"
+                id="startHour"
+                name="startHour"
+                min="0"
+                value="0"
+                required
+            />
+            :
+            <input
+                type="number"
+                id="startMinute"
+                name="startMinute"
+                min="0"
+                max="59"
+                value="0"
+                required
+            />
+            :
+            <input
+                type="number"
+                id="startSecond"
+                name="startSecond"
+                min="0"
+                max="59"
+                value="0"
+                required
+            />
+        </div>
+        <div id="form-end-timestamp">
+            <label for="endHour">End:</label>
+            <input
+                type="number"
+                id="endHour"
+                name="endHour"
+                min="0"
+                value="0"
+                required
+            />
+            :
+            <input
+                type="number"
+                id="endMinute"
+                name="endMinute"
+                min="0"
+                max="59"
+                value="0"
+                required
+            />
+            :
+            <input
+                type="number"
+                id="endSecond"
+                name="endSecond"
+                min="0"
+                max="59"
+                value="0"
+                required
+            />
+        </div>
+        <div id="form-loop-customization">
+            <label for="loopCount">Loop Count:</label>
+            <input
+                type="number"
+                id="loopCount"
+                name="loopCount"
+                min="1"
+                value="1"
+                required
+                class="textbox"
+            />
+        </div>
+        <div id="form-submit">
+            <button type="submit" id = "submit">Submit</button>
+        </div>
+        <script>
+            document.querySelector("form").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Log the form response
+                console.log(document.querySelector("form").elements);
+
+                // Clear the form
+                document.querySelector("form").reset();
+
+                // Show the success message
+                var successMessage = document.createElement("p");
+                successMessage.textContent = "You have submitted the form";
+                successMessage.style.color = "green";
+                document.querySelector("#form-submit").appendChild(successMessage);
+            });
+        </script>
+    </form>
+    </body>
+  </body>
+</html>
