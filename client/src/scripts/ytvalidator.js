@@ -30,6 +30,8 @@ const test = [
   "https://www.youtube.com/watch?v=1vVvDdBnCoa", //not ok
   "https://www.youtube.com/watch?v=1vVDvdBnCos", //not ok
   "https://www.youtube.com/watch?v=1vVDdBnCos", //not ok
+  "https://www.youtube.com/watch?v=", //not ok
+  "https://www.youtube.com/74gSU55AslM", //not ok
   "https://www.facebook.com/", //not ok
 ];
 
