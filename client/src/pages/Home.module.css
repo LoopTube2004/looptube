@@ -1,0 +1,7 @@
+/* Home.module.css */
+.home {
+    display: flex; /* Use flexbox to align children */
+    justify-content: center ; /* Center children horizontally */
+    height: 100vh; /* Make the home container fill the viewport height */
+    width: 100%; /* Adjust width as needed */
+}
