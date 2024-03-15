@@ -2,22 +2,20 @@
     padding: 20px;
     border: 2px solid black;
     width: 50%; 
-    height: 50%; /*auto modify to fix content*/
+    height: 40%; /*auto modify to fix content*/
 }
 
 
 .video-form h1, .video-form h3 {
     text-align: center;
-    
 }
-
 
 .input-group {
     display: flex; /* Use Flexbox for layout */
     justify-content: flex-start; /* Align children to the start */
     align-items: center; /* Align items vertically */
     width: 100%; /* Full width to match the form's width */
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .input-group label {
@@ -36,7 +34,7 @@
     justify-content: flex-start; /* Align children to the start */
     align-items: center; /* Align items vertically */
     width: 100%; /* Full width to match the form's width */
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .time-input-group label {
@@ -45,13 +43,13 @@
     margin-right: 0.5rem; /* Space between label and input */
 }
 
-.time-input-group p{
+.time-input-group span{
     width: 2%;
     text-align: center;
 }
 
 .time-input-group input {
-    flex-grow: 0.32; /* Input takes remaining space */
+    width: calc((76% - 0.5rem) / 3); /* Input takes remaining space */
     /* Optional: Define a max-width if you want to limit input width */
 }
 

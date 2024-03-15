@@ -34,13 +34,13 @@ const VideoForm = () => {
           onChange={(e) => setStartHour(e.target.value)}
           value={startHour}
         />
-        <p>:</p>
+        <span>:</span>
         <input
           type="number"
           onChange={(e) => setStartMinute(e.target.value)}
           value={startMinute}
         />
-        <p>:</p>
+        <span>:</span>
         <input
           type="number"
           onChange={(e) => setStartSecond(e.target.value)}
@@ -54,13 +54,13 @@ const VideoForm = () => {
           onChange={(e) => setEndHour(e.target.value)}
           value={endHour}
         />
-        <p>:</p>
+        <span>:</span>
         <input
           type="number"
           onChange={(e) => setEndMinute(e.target.value)}
           value={endMinute}
         />
-        <p>:</p>
+        <span>:</span>
         <input
           type="number"
           onChange={(e) => setEndSecond(e.target.value)}
