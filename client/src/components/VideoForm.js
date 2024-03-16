@@ -25,10 +25,11 @@ const VideoForm = () => {
           type="text"
           onChange={(e) => setUrl(e.target.value)}
           value={url}
+          placeholder = "Enter your youtube url here..."
         />
       </div>
       <div className={styles["time-input-group"]}>
-        <label>Start</label>
+        <label>Start (hh:mm:ss)</label>
         <input
           type="number"
           onChange={(e) => setStartHour(e.target.value)}
@@ -48,7 +49,7 @@ const VideoForm = () => {
         />
       </div>
       <div className={styles["time-input-group"]}>
-        <label>End</label>
+        <label>End (hh:mm:ss)</label>
         <input
           type="number"
           onChange={(e) => setEndHour(e.target.value)}
