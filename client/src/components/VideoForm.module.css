@@ -2,7 +2,7 @@
     padding: 20px;
     border: 2px solid black;
     width: 50%; 
-    height: 40%; /*auto modify to fix content*/
+    height: 50%; /*auto modify to fix content*/
 }
 
 
@@ -44,12 +44,12 @@
 }
 
 .time-input-group span{
-    width: 2%;
+    width: 1rem;
     text-align: center;
 }
 
 .time-input-group input {
-    width: calc((76% - 0.5rem) / 3); /* Input takes remaining space */
+    width: calc((76% - 2rem) / 3); /* Input takes remaining space */
     /* Optional: Define a max-width if you want to limit input width */
 }
 
