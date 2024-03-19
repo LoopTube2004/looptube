@@ -15,9 +15,13 @@ const VideoForm = () => {
 
 
     const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (!ur)
-        }
+        e.preventDefault();
+        var startTime = startHour * 3600 + startMinute * 60 + startSecond
+        var endTime = endHour * 3600 + endMinute * 60 + endSecond 
+
+        // if (!url || startTime )
+        //     pass 
+    }
 
     return (
         <form className={styles["video-form"]} onSubmit = {handleSubmit} >
@@ -40,6 +44,7 @@ const VideoForm = () => {
                 <input
                     type = "number"
                     min = "0" //So the value of input cannot be negative
+                    step = "1" //only accept integer
                     onChange = {(e) => setStartHour(e.target.value)}
                     value = {startHour}
                 />
@@ -47,6 +52,7 @@ const VideoForm = () => {
                 <input
                     type = "number"
                     min = "0"
+                    step = "1"
                     onChange = {(e) => setStartMinute(e.target.value)}
                     value = { startMinute }
                 />
@@ -54,6 +60,7 @@ const VideoForm = () => {
                 <input
                     type = "number"
                     min = "0"
+                    step = "1"
                     onChange={(e) => setStartSecond(e.target.value)}
                     value={ startSecond }
                 />
@@ -63,6 +70,7 @@ const VideoForm = () => {
                 <input
                     type = "number"
                     min = "0"
+                    step = "1"
                     onChange={(e) => setEndHour(e.target.value)}
                     value={endHour}
                 />
@@ -70,6 +78,7 @@ const VideoForm = () => {
                 <input
                     type = "number"
                     min = "0"
+                    step = "1"
                     onChange={(e) => setEndMinute(e.target.value)}
                     value={ endMinute }
                 />
@@ -77,6 +86,7 @@ const VideoForm = () => {
                 <input
                     type="number"
                     min = "0"
+                    step = "1"
                     onChange={(e) => setEndSecond(e.target.value)}
                     value={ endSecond }
                 />
@@ -86,6 +96,7 @@ const VideoForm = () => {
                 <input
                     type = "number"
                     min = "0"
+                    step = "1"
                     onChange={(e) => setCustomize(e.target.value)}
                     value={ customize } 
                 />
