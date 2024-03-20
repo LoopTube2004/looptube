@@ -11,7 +11,7 @@ function IFrame(props) {
 
   const options = {
     height: "360",
-    width: "640",
+    width: "800"
   };
 
   const onPlayerStateChange = (event) => {
@@ -25,7 +25,7 @@ function IFrame(props) {
         event.target.stopVideo();
       }
       count++;
-      console.log("count " + count);
+      //console.log("count " + count);
     }
   };
 
