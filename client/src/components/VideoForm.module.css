@@ -2,7 +2,7 @@
     padding: 20px;
     border: 2px solid black;
     width: 50%; 
-    height: 50%; /*auto modify to fix content*/
+    height: auto; /* Adjusts height based on content */
 }
 
 

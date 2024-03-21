@@ -1,9 +1,10 @@
 import styles from "./VideoForm.module.css";
 import { useState } from "react";
-
+import { FetchYoutubeData } from "../scripts/FetchYoutubeData";
+import { validateYouTubeLink } from "../scripts/YoutubeValidator";
 
 const VideoForm = () => {
-    const [url, setUrl] = useState(null);
+    const [url, setUrl] = useState("");
     const [startHour, setStartHour] = useState(0);
     const [startMinute, setStartMinute] = useState(0);
     const [startSecond, setStartSecond] = useState(0);
@@ -11,17 +12,51 @@ const VideoForm = () => {
     const [endMinute, setEndMinute] = useState(0);
     const [endSecond, setEndSecond] = useState(0);
     const [customize, setCustomize] = useState(0);
-    const [error, setError] = useState(null);
+    const [errors, setErrors] = useState([]);
 
 
-    const handleSubmit = (e) => {
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        var startTime = startHour * 3600 + startMinute * 60 + startSecond
-        var endTime = endHour * 3600 + endMinute * 60 + endSecond 
+        let tempErrors = []; // Temporary array to collect error messages
+    
+        var startTime = startHour * 3600 + startMinute * 60 + startSecond;
+        var endTime = endHour * 3600 + endMinute * 60 + endSecond;
+        
+        const checkValidUrl = await validateYouTubeLink(url)
+        if (!checkValidUrl) {
+            tempErrors.push("The URL is not a valid YouTube link.");
+        }
+    
+        const youtubeLength = await FetchYoutubeData(url)
+    
+        // Collecting error messages based on different conditions
+        if (!url) {
+            tempErrors.push("Your URL is missing.")
+        }
+        if (endTime < startTime) {
+            tempErrors.push("End time should be greater than start time.")
+        }
+        if (endTime > youtubeLength || startTime > youtubeLength) {
+            tempErrors.push("Start time or end time exceeds the video length.")
+        
+    
+        // Update the error state with all collected error messages
+        setErrors(tempErrors)
+    
+        // Check if there are any errors before proceeding
+        if (tempErrors.length === 0) {
+            //send those data into createIframefunction
+        } else {
+            // Errors are present, handle them appropriately
+            console.log("Errors are:", tempErrors)
+        }
+    } 
 
-        // if (!url || startTime )
-        //     pass 
-    }
+
+
+        }
 
     return (
         <form className={styles["video-form"]} onSubmit = {handleSubmit} >
@@ -29,8 +64,7 @@ const VideoForm = () => {
             <h3>Fill your form</h3>
 
             <div className={styles["input-group"]}>
-                {" "}
-                {/* We need to group <label> and <input> in same line    */}
+                {/* We need to group <label> and <input> in same line        */}
                 <label>Youtube Url</label>
                 <input
                     type="text"
@@ -98,13 +132,22 @@ const VideoForm = () => {
                     min = "0"
                     step = "1"
                     onChange={(e) => setCustomize(e.target.value)}
-                    value={ customize } 
+                    value={ customize }
                 />
             </div>
 
             <div className={styles["button-container"]}>
                 <button type="submit">Submit</button>
             </div>
+
+            {errors.length > 0 && (
+                <div>
+                    {errors.map((error, index) => (
+                    <p key={index}>{error}</p>
+                    ))}
+                </div>
+            )}
+
         </form>
     );
 };
