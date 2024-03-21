@@ -25,7 +25,7 @@ const VideoForm = () => {
           type="text"
           onChange={(e) => setUrl(e.target.value)}
           value={url}
-          placeholder = "Enter your youtube url here..."
+          placeholder="Enter your youtube url here..."
         />
       </div>
       <div className={styles["time-input-group"]}>
