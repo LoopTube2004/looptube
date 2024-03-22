@@ -2,8 +2,8 @@
 import axios from 'axios'
 
 
-export const FetchYoutubeData = async (url) => {
-    const apiKey = "AIzaSyCJH8x_L2mV6VDe1wTCl1q099d4QTyeWNw"
+export const FetchYoutubeData = async (url) => { //Fetch youtube data
+    const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY
     const videoId = getIdYoutubeVideo(url)
     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=contentDetails&key=${apiKey}`
     
@@ -21,7 +21,7 @@ export const FetchYoutubeData = async (url) => {
     return youtubeLength
 }
 
-export function iso8601DurationToSeconds(duration) {
+export function iso8601DurationToSeconds(duration) { //Convert time iso 8601 format to seconds - source chatgpt
     let hours = 0, minutes = 0, seconds = 0;
 
     // Extract hours
@@ -45,7 +45,7 @@ export function iso8601DurationToSeconds(duration) {
     return hours * 3600 + minutes * 60 + seconds;
 }
 
-export function getIdYoutubeVideo(url) {
+export function getIdYoutubeVideo(url) { //Get id of youtube url
     const splitted = url.split("v=")[1]
     const params = splitted.split("&")
     const id =  params[0] 
