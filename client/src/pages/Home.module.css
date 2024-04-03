@@ -1,9 +1,8 @@
 /* Home.module.css */
 .home {
     display: flex; /* Use flexbox to align children */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children horizontally */
-    align-items: center; /* Center children vertically */
+    justify-content: center ; /* Center children horizontally */
+    align-items: flex-start;
     height: 100vh; /* Make the home container fill the viewport height */
     width: 100%; /* Adjust width as needed */
 }
