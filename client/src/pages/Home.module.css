@@ -6,3 +6,7 @@
     height: 100vh; /* Make the home container fill the viewport height */
     width: 100%; /* Adjust width as needed */
 }
+
+.home > * {
+    margin-bottom: 10px; /* Add margin of 5px below each child element */
+}
