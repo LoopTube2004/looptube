@@ -40,7 +40,7 @@ const VideoForm = () => {
         }
         if (endTime > youtubeLength || startTime > youtubeLength) {
             tempErrors.push("Start time or end time exceeds the video length.")
-        
+        }
     
         // Update the error state with all collected error messages
         setErrors(tempErrors)
@@ -53,10 +53,6 @@ const VideoForm = () => {
             console.log("Errors are:", tempErrors)
         }
     } 
-
-
-
-        }
 
     return (
         <form className={styles["video-form"]} onSubmit = {handleSubmit} >
