@@ -52,6 +52,11 @@ const VideoForm = () => {
     // Check if there are any errors before proceeding
     if (tempErrors.length === 0) {
       setNoErrors(true);
+      console.log(typeof startHour, typeof startMinute, typeof startSecond, typeof endHour, typeof endMinute, typeof endSecond, typeof customize);
+      console.log("Start hour: " + startHour + ", End hour: " + endHour);
+      console.log("Start minute: " + startMinute + ", End minute: " + endMinute);
+      console.log("Start second: " + startSecond + ", End second: " + endSecond);
+      console.log("Start time: " + startTime + ", End time: " + endTime);
     } else {
       // Errors are present, handle them appropriately
       console.log("Errors are:", tempErrors);
@@ -152,7 +157,7 @@ const VideoForm = () => {
 
       {noErrors && (
         <IFrame
-          url={getIdYoutubeVideo(url)}
+          youtubeID={getIdYoutubeVideo(url)}
           start={startHour * 3600 + startMinute * 60 + startSecond}
           end={endHour * 3600 + endMinute * 60 + endSecond}
           time={customize}

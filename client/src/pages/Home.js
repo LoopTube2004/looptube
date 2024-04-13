@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <VideoForm />
-
+     
     </div>
   );
 };
