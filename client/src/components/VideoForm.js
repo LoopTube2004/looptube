@@ -21,8 +21,9 @@ const VideoForm = () => {
     e.preventDefault();
     let tempErrors = []; // Temporary array to collect error messages
 
-    var startTime = startHour * 3600 + startMinute * 60 + startSecond;
-    var endTime = endHour * 3600 + endMinute * 60 + endSecond;
+    //we need + before startMinute to convert it to a number, now it is a string instead
+    var startTime = startHour * 3600 + (+startMinute) * 60 + (+startSecond);
+    var endTime = endHour * 3600 + (+endMinute) * 60 + (+endSecond);
 
     //console.log(startTime + " " + endTime)
 
@@ -51,12 +52,8 @@ const VideoForm = () => {
 
     // Check if there are any errors before proceeding
     if (tempErrors.length === 0) {
+      // Set noError state to false. This will help indicating whether we render a video later.
       setNoErrors(true);
-      console.log(typeof startHour, typeof startMinute, typeof startSecond, typeof endHour, typeof endMinute, typeof endSecond, typeof customize);
-      console.log("Start hour: " + startHour + ", End hour: " + endHour);
-      console.log("Start minute: " + startMinute + ", End minute: " + endMinute);
-      console.log("Start second: " + startSecond + ", End second: " + endSecond);
-      console.log("Start time: " + startTime + ", End time: " + endTime);
     } else {
       // Errors are present, handle them appropriately
       console.log("Errors are:", tempErrors);
@@ -158,8 +155,8 @@ const VideoForm = () => {
       {noErrors && (
         <IFrame
           youtubeID={getIdYoutubeVideo(url)}
-          start={startHour * 3600 + startMinute * 60 + startSecond}
-          end={endHour * 3600 + endMinute * 60 + endSecond}
+          start={startHour * 3600 + (+startMinute) * 60 + (+startSecond)}
+          end={endHour * 3600 + (+endMinute) * 60 + (+endSecond)}
           time={customize}
         />     
       )}
