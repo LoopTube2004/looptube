@@ -15,8 +15,6 @@ const VideoForm = () => {
     const [errors, setErrors] = useState([]);
 
 
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         let tempErrors = []; // Temporary array to collect error messages
@@ -25,21 +23,22 @@ const VideoForm = () => {
         var endTime = endHour * 3600 + endMinute * 60 + endSecond;
         
         const checkValidUrl = await validateYouTubeLink(url)
+        console.log("CheckValidUrl is", checkValidUrl)
         if (!checkValidUrl) {
             tempErrors.push("The URL is not a valid YouTube link.");
-        }
-    
-        const youtubeLength = await FetchYoutubeData(url)
-    
-        // Collecting error messages based on different conditions
-        if (!url) {
-            tempErrors.push("Your URL is missing.")
-        }
-        if (endTime < startTime) {
-            tempErrors.push("End time should be greater than start time.")
-        }
-        if (endTime > youtubeLength || startTime > youtubeLength) {
-            tempErrors.push("Start time or end time exceeds the video length.")
+        } else {
+            //Only fetch if valid url
+            const youtubeLength = await FetchYoutubeData(url) 
+            // Collecting error messages based on different conditions
+            if (!url) {
+                tempErrors.push("Your URL is missing.")
+            }
+            if (endTime < startTime) {
+                tempErrors.push("End time should be greater than start time.")
+            }
+            if (endTime > youtubeLength || startTime > youtubeLength) {
+                tempErrors.push("Start time or end time exceeds the video length.")
+            }
         }
     
         // Update the error state with all collected error messages
