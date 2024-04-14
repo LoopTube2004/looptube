@@ -59,3 +59,7 @@
     width: 100%; /* Ensures the container spans the full width */
     margin-top: 20px; /* Adds some space above the button, adjust as needed */
 }
+
+.error {
+    color: red;
+}
