@@ -3,11 +3,22 @@
     border: 2px solid black;
     width: 50%; 
     height: auto; /* Adjusts height based on content */
+    font-family: 'Poppins', sans-serif;
 }
 
 
-.video-form h1, .video-form h3 {
-    text-align: center;
+.video-form h1 {
+  text-align: center;
+  font-size: 41px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.video-form h3 {
+  text-align: center;
 }
 
 .input-group {
@@ -35,6 +46,7 @@
     align-items: center; /* Align items vertically */
     width: 100%; /* Full width to match the form's width */
     margin-bottom: 2rem;
+    
 }
 
 .time-input-group label {

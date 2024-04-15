@@ -5,7 +5,7 @@ const VideoForm = (props) => {
   return (
       <form className={styles["video-form"]} onSubmit={props.handleSubmit}>
         <h1>LoopTube</h1>
-        <h3>Fill your form</h3>
+        <h3>Loop your favorite YouTube part here 👇</h3>
 
         <div className={styles["input-group"]}>
           {/* We need to group <label> and <input> in same line        */}
