@@ -81,7 +81,7 @@ const VideoForm = (props) => {
         </div>
 
         <div className={styles["button-container"]}>
-          <button type="submit">Submit</button>
+          <button className={styles["submit-button"]} type="submit">Submit</button>
         </div>
 
         {props.errors.length > 0 && (
