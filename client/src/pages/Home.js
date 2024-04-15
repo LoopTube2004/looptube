@@ -50,7 +50,6 @@ const Home = () => {
     
       }
   
-
       // Update the error state with all collected error messages
       setErrors(tempErrors);
   

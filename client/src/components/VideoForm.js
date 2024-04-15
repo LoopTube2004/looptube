@@ -1,13 +1,8 @@
 import styles from "./VideoForm.module.css";
-import { useState } from "react";
-import { FetchYoutubeData } from "../scripts/FetchYoutubeData";
-import { validateYouTubeLink } from "../scripts/YoutubeValidator";
-import toast from "react-hot-toast";
 
 
 const VideoForm = (props) => {
   return (
-    <div>
       <form className={styles["video-form"]} onSubmit={props.handleSubmit}>
         <h1>LoopTube</h1>
         <h3>Fill your form</h3>
@@ -97,7 +92,6 @@ const VideoForm = (props) => {
           </div>
         )}
       </form>
-    </div>
   );
 };
 
