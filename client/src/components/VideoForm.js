@@ -2,6 +2,8 @@ import styles from "./VideoForm.module.css";
 import { useState } from "react";
 import { FetchYoutubeData } from "../scripts/FetchYoutubeData";
 import { validateYouTubeLink } from "../scripts/YoutubeValidator";
+import toast from "react-hot-toast";
+
 
 const VideoForm = () => {
     const [url, setUrl] = useState("");
@@ -23,7 +25,7 @@ const VideoForm = () => {
         var endTime = endHour * 3600 + endMinute * 60 + endSecond;
         
         const checkValidUrl = await validateYouTubeLink(url)
-        console.log("CheckValidUrl is", checkValidUrl)
+
         if (!checkValidUrl) {
             tempErrors.push("The URL is not a valid YouTube link.");
         } else {
@@ -50,6 +52,10 @@ const VideoForm = () => {
         } else {
             // Errors are present, handle them appropriately
             console.log("Errors are:", tempErrors)
+        }
+
+        for (let err of tempErrors) { //Show toast error for those errors
+            toast.error(err)
         }
     } 
 
@@ -138,7 +144,7 @@ const VideoForm = () => {
             {errors.length > 0 && (
                 <div>
                     {errors.map((error, index) => (
-                    <p key={index}>{error}</p>
+                    <p key={index} className={styles["error"]}>{error}</p>
                     ))}
                 </div>
             )}
