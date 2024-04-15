@@ -92,7 +92,7 @@ const VideoForm = (props) => {
         {props.errors.length > 0 && (
           <div>
             {props.errors.map((error, index) => (
-              <p key={index}>{error}</p>
+              <p key={index} className={styles["error"]}>{error}</p>
             ))}
           </div>
         )}

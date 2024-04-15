@@ -4,6 +4,9 @@ import styles from "./Home.module.css";
 import { useState } from "react";
 import { FetchYoutubeData, getIdYoutubeVideo } from "../scripts/FetchYoutubeData";
 import { validateYouTubeLink } from "../scripts/YoutubeValidator";
+import toast from "react-hot-toast";
+
+
 const Home = () => {
     const [url, setUrl] = useState("");
     const [startHour, setStartHour] = useState(0);
@@ -30,22 +33,24 @@ const Home = () => {
   
       if (!checkValidUrl) {
         tempErrors.push("The URL is not a valid YouTube link.");
+      } else {
+        const youtubeLength = await FetchYoutubeData(url);
+  
+        // Collecting error messages based on different conditions
+        if (!url) {
+          tempErrors.push("Your URL is missing.");
+        }
+        if (endTime < startTime) {
+          //console.log("End time should be greater than start time.")
+          tempErrors.push("End time should be greater than start time.");
+        }
+        if (endTime > youtubeLength || startTime > youtubeLength) {
+          tempErrors.push("Start time or end time exceeds the video length.");
+        }
+    
       }
   
-      const youtubeLength = await FetchYoutubeData(url);
-  
-      // Collecting error messages based on different conditions
-      if (!url) {
-        tempErrors.push("Your URL is missing.");
-      }
-      if (endTime < startTime) {
-        //console.log("End time should be greater than start time.")
-        tempErrors.push("End time should be greater than start time.");
-      }
-      if (endTime > youtubeLength || startTime > youtubeLength) {
-        tempErrors.push("Start time or end time exceeds the video length.");
-      }
-  
+
       // Update the error state with all collected error messages
       setErrors(tempErrors);
   
@@ -57,6 +62,10 @@ const Home = () => {
       } else {
         // Errors are present, handle them appropriately
         console.log("Errors are:", tempErrors);
+      }
+
+      for (let err of tempErrors) { //Show toast error for those errors
+        toast.error(err)
       }
     };
 
