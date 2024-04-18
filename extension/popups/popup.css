@@ -1,0 +1,11 @@
+body, html {
+    width: 400px;
+    height: 400px
+}
+
+.error {
+    color: red;
+}
+.video-form, .time-input-group, .input-group, .button-container {
+    margin-bottom: 10px;
+}

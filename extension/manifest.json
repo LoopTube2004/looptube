@@ -1,0 +1,20 @@
+{
+    "name" : "Looptube",
+    "version" : "1.0", 
+    "description" : "A google extension allow user to create customization youtube videos", 
+    "manifest_version" : 3, 
+    "action" : {
+        "default_title": "LoopTube",
+        "default_popup": "popups/popup.html",
+        "default_icon": {
+          "32": "icons/icon16.png",
+          "72": "icons/icon48.png",
+          "128": "icons/icon128.png"
+        }
+    }, 
+    "icons" : {
+        "32": "icons/icon16.png",
+        "72": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
