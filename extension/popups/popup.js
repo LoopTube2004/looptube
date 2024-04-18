@@ -44,6 +44,4 @@ document.getElementById('videoForm').addEventListener('submit', async function(e
         console.log('No errors. Proceed with form submission:', url, startHour, startMinute, startSecond, endHour, endMinute, endSecond, customize);
     }
 
-
-    document.getElementById('youtubeUrl').value = 0
 });
