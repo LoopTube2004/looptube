@@ -18,7 +18,10 @@ const Home = () => {
     const [customize, setCustomize] = useState(0);
     const [errors, setErrors] = useState([]);
     const [noErrors, setNoErrors] = useState(false);
-  
+    const [start, setStart] = useState(0);
+    const [end, setEnd] = useState(0);
+    const [youtubeID, setYoutubeID] = useState("");
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       let tempErrors = []; // Temporary array to collect error messages
@@ -57,6 +60,9 @@ const Home = () => {
       if (tempErrors.length === 0) {
         // Set noError state to false. This will help indicating whether we render a video later.
         setNoErrors(true);
+        setStart(startTime);
+        setEnd(endTime);
+        setYoutubeID(getIdYoutubeVideo(url));
         console.log(url, startHour, startMinute, startSecond, endHour, endMinute, endSecond, customize)
       } else {
         // Errors are present, handle them appropriately
@@ -92,9 +98,9 @@ const Home = () => {
       />
       {noErrors && (
         <IFrame
-          youtubeID={getIdYoutubeVideo(url)}
-          start={startHour * 3600 + (+startMinute) * 60 + (+startSecond)}
-          end={endHour * 3600 + (+endMinute) * 60 + (+endSecond)}
+          youtubeID={youtubeID}
+          start={start}
+          end={end}
           time={customize}
         />     
       )}
