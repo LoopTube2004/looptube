@@ -1,11 +1,70 @@
-body, html {
+body {
     width: 400px;
     height: 400px
 }
 
+.video-form {  
+    padding: 20px;
+    border: 2px solid black;
+    width: 90%; 
+    height: auto; /* Adjusts height based on content */
+}
+
+
+.video-form h1, .video-form h3 {
+    text-align: center;
+}
+
+.input-group {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: flex-start; /* Align children to the start */
+    align-items: center; /* Align items vertically */
+    width: 100%; /* Full width to match the form's width */
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    flex-basis: 20%; /* Allocate specific width to the label */
+    text-align: left; /* Right-align text to closely align with the input */
+    margin-right: 0.5rem; /* Space between label and input */
+}
+
+.input-group input {
+    flex-grow: 1; /* Input takes remaining space */
+    /* Optional: Define a max-width if you want to limit input width */
+}
+
+.time-input-group {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: flex-start; /* Align children to the start */
+    align-items: center; /* Align items vertically */
+    width: 100%; /* Full width to match the form's width */
+    margin-bottom: 2rem;
+}
+
+.time-input-group label {
+    flex-basis: 20%; /* Allocate specific width to the label */
+    text-align: left; /* Right-align text to closely align with the input */
+    margin-right: 0.5rem; /* Space between label and input */
+}
+
+.time-input-group span{
+    width: 1rem;
+    text-align: center;
+}
+
+.time-input-group input {
+    width: calc((76% - 2rem) / 3); /* Input takes remaining space */
+    /* Optional: Define a max-width if you want to limit input width */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ensures the container spans the full width */
+    margin-top: 20px; /* Adds some space above the button, adjust as needed */
+}
+
 .error {
     color: red;
-}
-.video-form, .time-input-group, .input-group, .button-container {
-    margin-bottom: 10px;
 }

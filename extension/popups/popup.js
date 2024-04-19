@@ -1,3 +1,7 @@
+
+import { FetchYoutubeData } from '../scripts/FetchYoutubeData.js'
+import { validateYouTubeLink } from '../scripts/YoutubeValidator.js';
+
 document.getElementById('videoForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
@@ -12,13 +16,13 @@ document.getElementById('videoForm').addEventListener('submit', async function(e
     const errors = [];
 
     // Placeholder for your validateYouTubeLink function
-    const isValidUrl = true; // Simulate with actual AJAX call
+    const isValidUrl = await validateYouTubeLink(url); // Simulate with actual AJAX call
 
     if (!isValidUrl) {
         errors.push("The URL is not a valid YouTube link.");
     } else {
         // Placeholder for your FetchYoutubeData function
-        const youtubeLength = 3600; // Simulate response
+        const youtubeLength = await FetchYoutubeData(url); // Simulate response
 
         if (endHour * 3600 + endMinute * 60 + endSecond < startHour * 3600 + startMinute * 60 + startSecond) {
             errors.push("End time should be greater than start time.");
@@ -40,8 +44,10 @@ document.getElementById('videoForm').addEventListener('submit', async function(e
             errorContainer.appendChild(p);
         });
     } else {
-        // Proceed with video rendering logic or other actions
+        // Proceed with video rendering logic or other actions 
+        //Currently is open youtube link, then we move to the looptube.com deployed websit
         console.log('No errors. Proceed with form submission:', url, startHour, startMinute, startSecond, endHour, endMinute, endSecond, customize);
+        window.open(url, '_blank');
     }
 
 });
