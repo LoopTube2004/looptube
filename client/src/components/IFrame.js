@@ -1,5 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
+import styles from "./IFrame.module.css";
 
 function IFrame(props) {
   var count = 0;
@@ -31,7 +32,7 @@ function IFrame(props) {
 
   return (
     <YouTube
-      className="player"
+      className={styles["player"]}
       videoId={props.youtubeID}
       opts={options}
       onReady={onPlayerReady}
