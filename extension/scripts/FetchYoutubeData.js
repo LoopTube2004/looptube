@@ -5,7 +5,6 @@ export const FetchYoutubeData = async (url) => { //Fetch youtube data
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         mode: "no-cors", // no-cors, *cors, same-origin
     });
-    console.log(apiKey)
     const videoId = getIdYoutubeVideo(url)
     //Read: https://developers.google.com/youtube/v3/docs/videos
     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=contentDetails&key=${apiKey}`
