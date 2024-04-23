@@ -7,9 +7,6 @@ function Login() {
     return (
         <div className={styles["login-container"]}>
             <div className={styles["login-box"]}>
-                <button className={styles["login-button"]}>
-                    Sign in with Google
-                </button>
                 <GoogleLoginButton/>
             </div>
         </div>
