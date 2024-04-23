@@ -1,5 +1,3 @@
-//Need to handle the api key
-
 export const FetchYoutubeData = async (url) => { //Fetch youtube data
     var apiKey = ''
     fetch('https://9d6ss4k11k.execute-api.us-east-2.amazonaws.com/default/looptube_yt_api', {
