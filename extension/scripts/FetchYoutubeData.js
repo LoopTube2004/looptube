@@ -1,8 +1,14 @@
 //Need to handle the api key
 
 export const FetchYoutubeData = async (url) => { //Fetch youtube data
-    const apiKey = "AIzaSyAZTp75Vr7vw0ldhXkAy4LLUXmp2S_tqLs"
-    console.log(apiKey)
+    var apiKey = ''
+    fetch('https://9d6ss4k11k.execute-api.us-east-2.amazonaws.com/default/looptube_yt_api', {
+        method: 'post',
+    })
+    .then(response => response.text())
+    .then(data => {
+        apiKey = data;
+    });
     const videoId = getIdYoutubeVideo(url)
     //Read: https://developers.google.com/youtube/v3/docs/videos
     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=contentDetails&key=${apiKey}`
