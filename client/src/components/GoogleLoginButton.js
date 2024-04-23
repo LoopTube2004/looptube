@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode";
 // Function to handle success response
 const handleSuccess = (credentialResponse) => {
     console.log(credentialResponse);
+    const decodedToken = jwtDecode(credentialResponse.credential); 
+    console.log("decodedtoken:", decodedToken);
 };
 
 // Function to handle error response
