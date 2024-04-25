@@ -33,20 +33,13 @@ import axios from 'axios'
 
 const GoogleLoginButton = () => {
     const googleLogin = useGoogleLogin({
-      onSuccess: tokenResponse => {
+      onSuccess: async (tokenResponse) => {
         console.log('Token Response:', tokenResponse);  // Check the whole tokenResponse object
+        console.log("Acces token is: ", tokenResponse.access_token)
         const google_token = tokenResponse.access_token
-        axios
-            .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${google_token}`, { //How to decode google token
-                headers: {
-                    Authorization: `Bearer ${google_token}`,
-                    Accept: 'application/json'
-                }
-            })
-            .then((res) => {
-                console.log("res.data: ", res.data);
-            })
-            .catch((err) => console.log(err));
+        const response = await axios.get('http://localhost:4000/api/auth/login', {
+          headers: { Authorization: `Bearer ${google_token}` }
+        })
       },
       onError: (error) => console.error('Login Failed:', error),
     });
