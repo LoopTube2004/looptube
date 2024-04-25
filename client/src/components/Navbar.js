@@ -5,18 +5,17 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 function Navbar() {
-  const dispatch = useDispatch()
-  const user = useSelector((state) => state.user.user)
-  return (
-    <nav className={styles.navbar}>
-      <div className={styles.navContainer}>
-        {/* Other nav items can be placed here */}
-        {user && <div className={styles.logoutButton}>
-          <LogoutButton />
-        </div>}
-      </div>
-    </nav>
-  );
+    const user = useSelector((state) => state.user.user)
+    return (
+        <nav className={styles.navbar}>
+            <div className={styles.navContainer}>
+                {/* Other nav items can be placed here */}
+                {user && <div className={styles.logoutButton}>
+                    <LogoutButton />
+                </div>}
+            </div>
+        </nav>
+    );
 }
 
 export default Navbar;

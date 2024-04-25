@@ -1,14 +1,15 @@
 import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
-import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { login } from '../features/userSlice'; // Assuming you have an action to set user token
 import axios from 'axios'
 import styles from './GoogleLoginButton.module.css'
 
 
 const GoogleLoginButton = () => {
-    const user = useSelector((state) => state.user.user);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
@@ -17,10 +18,10 @@ const GoogleLoginButton = () => {
                 const response = await axios.get('http://localhost:4000/api/auth/login', {
                     headers: { Authorization: `Bearer ${google_token}` }
                 })
-                console.log("response is", response)
                 dispatch(login(response.data))
-                localStorage.setItem('user', JSON.stringify(response.data));
-            } catch (err) {
+                localStorage.setItem('user', JSON.stringify(response.data))
+                navigate('/')  //Navigate to "/" home page after login successfully
+            } catch (err) { 
                 console.log("there is error in GoogleLOginButton.js", err)
             }
         },

@@ -7,7 +7,7 @@ const LogoutButton = () => {
     const dispatch = useDispatch();
     const handleClick = () => {
         localStorage.removeItem('user');
-        dispatch(logout());
+        dispatch(logout()); //Delete the user redux state
     };
 
     return (
