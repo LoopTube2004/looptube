@@ -24,7 +24,8 @@ const loginUser = async (req, res) => {
         //else:
         //    dynamodb.insert([response.data - id, email, name, picture], auto-generated user_id)
         const jwt_token = createToken(user_google_id) //need to change to dynomodb_user_id
-        res.status(200).json({token : jwt_token})
+        const email = response.data.email
+        res.status(200).json({token : jwt_token, email : email})
 
     } catch (err) {
         res.status(400).json({error: err.message})  
