@@ -1,6 +1,7 @@
 // Reference: https://www.reddit.com/r/learnprogramming/comments/7ioxra/how_to_check_if_a_youtube_link_is_valid_or_not/
 import axios from 'axios'
 
+//Test synchronize
 export async function validateYouTubeLink(youtube_url) {
     const regex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
     if (!regex.test(youtube_url)) {
