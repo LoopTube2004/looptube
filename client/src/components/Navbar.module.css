@@ -1,0 +1,17 @@
+/* Navbar.module.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* This will place child elements on opposite ends */
+    align-items: center; /* This will center them vertically */
+    padding: 0 10px; /* Add some padding on the sides */
+}
+  
+.navContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* This will align the LogoutButton to the right */
+}
+  
+
+  

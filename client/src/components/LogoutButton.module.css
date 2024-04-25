@@ -1,0 +1,26 @@
+/* LogoutButton.module.css */
+
+.button {
+    background-color: #e08d87; /* Red background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .button:hover {
+    background-color: #e14c4c; /* Darker shade of red on hover */
+    transform: translateY(-2px); /* Slight raise effect */
+  }
+  
+  .button:active {
+    transform: translateY(1px); /* Slight press-down effect */
+  }
+  

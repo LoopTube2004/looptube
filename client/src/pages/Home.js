@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FetchYoutubeData, getIdYoutubeVideo } from "../scripts/FetchYoutubeData";
 import { validateYouTubeLink } from "../scripts/YoutubeValidator";
 import toast from "react-hot-toast";
+import LogoutButton from '../components/LogoutButton' 
 
 
 const Home = () => {
