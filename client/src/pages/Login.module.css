@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh; /* Full viewport height */
     background-color: #f4f4f4; /* Light grey background */
+
 }
 
 .login-box {
@@ -14,6 +15,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
     justify-content: center;
+    border: 2px solid rgb(21, 112, 198);
 }
 
 .login-button {
