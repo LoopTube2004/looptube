@@ -5,3 +5,19 @@ Documentation: https://docs.google.com/document/d/1-luR3nD4HFcdkiHVv9K5e264WRv0M
 Tasks: https://docs.google.com/document/d/1aKG-ybrl7TOHiXp8PwrnxGY4yecsmySGWwNMBSSSYkc/edit </br>
 Figma:  </br>
 Miro :  </br>
+
+
+#Development Flow
+A. Pulling Flow
+- git branch (check whether in main or not)
+- git checkout main
+- git fetch
+- git status
+- git pull 
+
+B. Development flow
+- git checkout -b new-branches-for-development
+- git add .
+- git commit -m "message"
+- (optional) py synchronize.py (to synchronize FetchYoutubeData.js and YoutubeValidator.js in client folder and extension folder)  
+- git push
