@@ -7,7 +7,7 @@ const initialState = {
   endHour: 0,
   endMinute: 0,
   endSecond: 0,
-  url: null,
+  url: "",
   customize: 0,
 };
 
