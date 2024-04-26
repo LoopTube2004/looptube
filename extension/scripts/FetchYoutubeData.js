@@ -1,21 +1,16 @@
+
+import axios from 'axios'
+
+
 export const FetchYoutubeData = async (url) => { //Fetch youtube data
-    var apiKey = ''
-    fetch('https://9d6ss4k11k.execute-api.us-east-2.amazonaws.com/default/looptube_yt_api', {
-        method: 'post',
-    })
-    .then(response => response.text())
-    .then(data => {
-        apiKey = data;
-    });
+    const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY
     const videoId = getIdYoutubeVideo(url)
-    //Read: https://developers.google.com/youtube/v3/docs/videos
     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=contentDetails&key=${apiKey}`
     
     let youtubeLength = 0 
     try {
-        const response = await fetch(apiUrl)
-        const data = await response.json()
-        const time = data.items[0].contentDetails.duration
+        const response = await axios.get(apiUrl)
+        const time = response.data.items[0].contentDetails.duration
         youtubeLength = iso8601DurationToSeconds(time)
     } catch (error) {
         console.log("There is error with FetchYoutubeData.js")
