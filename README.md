@@ -21,3 +21,6 @@ B. Development flow
 - git commit -m "message"
 - (optional) py synchronize.py (to synchronize FetchYoutubeData.js and YoutubeValidator.js in client folder and extension folder)  
 - git push
+
+
+![image](https://github.com/LoopTube2004/looptube/assets/122703392/cf35cd17-576f-48c0-974c-1c5a7972544b)
