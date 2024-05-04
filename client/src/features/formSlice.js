@@ -39,6 +39,16 @@ export const formSlice = createSlice({
     updateCustomize: (state, action) => {
       state.customize = action.payload;
     },
+    restartForm: (state) => {
+      state.startHour = 0;
+      state.startMinute = 0;
+      state.startSecond = 0;
+      state.endHour = 0;
+      state.endMinute = 0;
+      state.endSecond = 0;
+      state.url = "";
+      state.customize = 0;
+    }
   },
 });
 
@@ -51,6 +61,7 @@ export const {
   updateEndSecond,
   updateUrl,
   updateCustomize,
+  restartForm,
 } = formSlice.actions;
 
 export default formSlice.reducer;
