@@ -3,35 +3,35 @@ package controllers
 import (
 	"context"
 	"fmt"
-	"log"
-	"net/http"
-	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/LoopTube2004/looptube/models"
 	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	"github.com/gin-gonic/gin"
 	"github.com/satori/go.uuid"
+	"log"
+	"net/http"
 )
 
 func AddVideoPart(c *gin.Context) {
 	//create a new DynamoDB client
 	cfg, err := config.LoadDefaultConfig(context.TODO())
-    if err != nil {
-        log.Fatalf("unable to load SDK config, %v", err)
-    } else {
+	if err != nil {
+		log.Fatalf("unable to load SDK config, %v", err)
+	} else {
 		fmt.Println("Connected to DynamoDB")
 	}
-    dbClient := dynamodb.NewFromConfig(cfg)
+	dbClient := dynamodb.NewFromConfig(cfg)
 	//log.Default().Print("DynamoDB client created, ", dbClient)
 
 	// Parse request body
 	var requestBody struct {
 		Link          string `json:"link"`
-		StartSec      int32    `json:"startSec"`
-		EndSec        int32    `json:"endSec"`
-		Customization int32 `json:"customization"`
+		StartSec      int32  `json:"startSec"`
+		EndSec        int32  `json:"endSec"`
+		Customization int32  `json:"customization"`
 	}
 
 	if err := c.ShouldBindJSON(&requestBody); err != nil {
@@ -69,8 +69,8 @@ func AddVideoPart(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"message":      "Video part added successfully",
-		"videoPartId":  videoPartID,
+		"message":     "Video part added successfully",
+		"videoPartId": videoPartID,
 	})
 }
 
@@ -104,7 +104,7 @@ func GetVideoPartByID(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	
+
 	// Check if the video part exists
 	if len(data.Item) == 0 || data.Item == nil {
 		fmt.Println("No video part found")
