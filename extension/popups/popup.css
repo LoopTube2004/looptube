@@ -1,11 +1,11 @@
 body {
     width: 500px;
-    height: 470px
+    height: 470px;
+    border: 2px black solid;
 }
 
 .video-form {    
     padding: 20px;
-    border: 2px solid black;
     width: 90%; 
     height: auto; /* Adjusts height based on content */
     font-family: 'Poppins's, sans-serif;
