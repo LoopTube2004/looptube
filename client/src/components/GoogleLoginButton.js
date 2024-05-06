@@ -19,6 +19,7 @@ const GoogleLoginButton = () => {
                     headers: { Authorization: `Bearer ${google_token}` }
                 })
                 dispatch(login(response.data))
+                console.log("Google_token is", google_token)
                 localStorage.setItem('user', JSON.stringify(response.data))
                 navigate('/')  //Navigate to "/" home page after login successfully
             } catch (err) { 
