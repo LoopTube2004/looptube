@@ -6,14 +6,13 @@ import { FetchYoutubeData, getIdYoutubeVideo } from "../scripts/FetchYoutubeData
 import { validateYouTubeLink } from "../scripts/YoutubeValidator";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import LogoutButton from '../components/LogoutButton' 
-
 
 const Home = () => {
     const [errors, setErrors] = useState([]);
     const [noErrors, setNoErrors] = useState(false);
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(0);
+    const [finalCustomize, setFinalCustomize] = useState(0);
     const [youtubeID, setYoutubeID] = useState("");
 
     const startHour = useSelector((state) => state.form.startHour);
@@ -66,7 +65,8 @@ const Home = () => {
         setStart(startTime);
         setEnd(endTime);
         setYoutubeID(getIdYoutubeVideo(url));
-        console.log(url, startHour, startMinute, startSecond, endHour, endMinute, endSecond, customize)
+        setFinalCustomize(customize);
+        console.log(url, startHour, startMinute, startSecond, endHour, endMinute, endSecond, finalCustomize)
       } else {
         // Errors are present, handle them appropriately
         console.log("Errors are:", tempErrors);
@@ -85,10 +85,11 @@ const Home = () => {
       />
       {noErrors && (
         <IFrame
+          key={`${youtubeID}-${start}-${end}-${finalCustomize}`}
           youtubeID={youtubeID}
           start={start}
           end={end}
-          time={customize}
+          time={finalCustomize}
         />     
       )}
     </div>
