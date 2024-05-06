@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoopTube Form</title>
     <link rel="stylesheet" href="popup.css">
+
 </head>
 <body>
     <div>
@@ -13,12 +14,12 @@
             <h3>Fill your form</h3>
 
             <div class="input-group">
-                <label>YouTube URL:</label>
+                <label><b>YouTube URL:</b></label>
                 <input type="text" id="youtubeUrl" placeholder="Enter your youtube url here...">
             </div>
 
             <div class="time-input-group">
-                <label>Start (hh:mm:ss):</label>
+                <label><b>Start (hh:mm:ss):</b></label>
                 <input type="number" id="startHour" min="0" step="1">
                 <span>:</span>
                 <input type="number" id="startMinute" min="0" step="1">
@@ -27,7 +28,7 @@
             </div>
 
             <div class="time-input-group">
-                <label>End (hh:mm:ss):</label>
+                <label><b>End (hh:mm:ss):</b></label>
                 <input type="number" id="endHour" min="0" step="1">
                 <span>:</span>
                 <input type="number" id="endMinute" min="0" step="1">
@@ -36,12 +37,12 @@
             </div>
 
             <div class="input-group">
-                <label>Customize:</label>
+                <label><b>Customize:</b></label>
                 <input type="number" id="customize" min="0" step="1">
             </div>
 
             <div class="button-container">
-                <button type="submit">Submit</button>
+                <button class="submit-button" type="submit">Submit</button>
             </div>
 
             <div id="errorContainer"></div>
@@ -50,5 +51,6 @@
     <script type="module" src="popup.js"></script>
     <script type="module" src="../scripts/FetchYoutubeData.js"></script>
     <script type="module" src="../scripts/YoutubeValidator.js"></script>
+
 </body>
 </html>

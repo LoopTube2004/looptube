@@ -1,11 +1,11 @@
 import shutil
 from filecmp import cmp
 
-source_file_1 = './client/src/scripts/FetchYoutubeData.js'
-target_file_1 = './extension/scripts/FetchYoutubeData.js'
+source_file_1 = './extension/scripts/FetchYoutubeData.js'
+target_file_1 = './client/src/scripts/FetchYoutubeData.js'
 
-source_file_2 = './client/src/scripts/YoutubeValidator.js'
-target_file_2 = './extension/scripts/YoutubeValidator.js'
+source_file_2 = './extension/scripts/YoutubeValidator.js'
+target_file_2 = './client/src/scripts/YoutubeValidator.js'
 
 # Function to sync files
 def sync_files(source, target):
