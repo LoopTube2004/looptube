@@ -7,9 +7,8 @@ import (
 	"io"
 	"log"
 	"net/http"
-
+	"github.com/LoopTube2004/looptube/thirdparty"
 	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	"github.com/gin-gonic/gin"
@@ -17,12 +16,7 @@ import (
 
 func LoginByGoogle(c *gin.Context) {
 	// Load AWS configuration
-	cfg, err := config.LoadDefaultConfig(context.TODO())
-	if err != nil {
-		log.Fatalf("unable to load SDK config, %v", err)
-	}
-	fmt.Println("Connected to DynamoDB")
-	dbClient := dynamodb.NewFromConfig(cfg)
+	dbClient := thirdparty.InitDynamoDB()
 
 	// Retrieve Google Token from Authorization header
 	googleToken := c.GetHeader("Authorization")[7:] // Skip "Bearer "

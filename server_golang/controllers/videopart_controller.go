@@ -4,30 +4,23 @@ import (
 	"context"
 	"fmt"
 	"github.com/LoopTube2004/looptube/models"
+	"github.com/LoopTube2004/looptube/thirdparty"
 	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	"github.com/gin-gonic/gin"
 	"github.com/satori/go.uuid"
-	"log"
 	"net/http"
 )
 
 func AddVideoPart(c *gin.Context) {
 	//create a new DynamoDB client
-	cfg, err := config.LoadDefaultConfig(context.TODO())
-	if err != nil {
-		log.Fatalf("unable to load SDK config, %v", err)
-	} else {
-		fmt.Println("Connected to DynamoDB")
-	}
-	dbClient := dynamodb.NewFromConfig(cfg)
-	//log.Default().Print("DynamoDB client created, ", dbClient)
-
+	dbClient := thirdparty.InitDynamoDB()
+	
 	// Parse request body
 	var requestBody struct {
+		UserId 		  string `json:"userId"`
 		Link          string `json:"link"`
 		StartSec      int32  `json:"startSec"`
 		EndSec        int32  `json:"endSec"`
@@ -45,6 +38,7 @@ func AddVideoPart(c *gin.Context) {
 	// Create a new VideoPart object
 	videoPart := models.VideoPart{
 		VideoPartId:   videoPartID,
+		UserId:        requestBody.UserId,
 		Link:          requestBody.Link,
 		StartSec:      requestBody.StartSec,
 		EndSec:        requestBody.EndSec,
@@ -76,13 +70,7 @@ func AddVideoPart(c *gin.Context) {
 
 func GetVideoPartByID(c *gin.Context) {
 	//create a new DynamoDB client
-	cfg, err := config.LoadDefaultConfig(context.TODO())
-	if err != nil {
-		log.Fatalf("unable to load SDK config, %v", err)
-	} else {
-		fmt.Println("Connected to DynamoDB")
-	}
-	dbClient := dynamodb.NewFromConfig(cfg)
+	dbClient := thirdparty.InitDynamoDB()
 
 	// Get the video part ID from the URL
 	videoPartID := c.Param("id")
