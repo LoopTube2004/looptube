@@ -20,6 +20,7 @@ func AddVideoPart(c *gin.Context) {
 	
 	// Parse request body
 	var requestBody struct {
+		UserId 		  string `json:"userId"`
 		Link          string `json:"link"`
 		StartSec      int32  `json:"startSec"`
 		EndSec        int32  `json:"endSec"`
@@ -37,6 +38,7 @@ func AddVideoPart(c *gin.Context) {
 	// Create a new VideoPart object
 	videoPart := models.VideoPart{
 		VideoPartId:   videoPartID,
+		UserId:        requestBody.UserId,
 		Link:          requestBody.Link,
 		StartSec:      requestBody.StartSec,
 		EndSec:        requestBody.EndSec,
