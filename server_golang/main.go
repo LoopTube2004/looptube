@@ -10,6 +10,7 @@ func main() {
 
 	// Setup routes
 	routes.SetupRouter(router)
+	routes.SetupUserRouter(router)
 	routes.SetupVideoPart(router)
 
 	// Start server
